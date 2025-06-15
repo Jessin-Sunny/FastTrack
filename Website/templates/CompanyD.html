@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="scrollable-element">
+            <h1>Company Details</h1>
+            
+            <div class="details-container">
+                <div class="detail-item">
+                    <label>Company Name:</label>
+                    <span>{{ company['C_Name'] }}</span>
+                </div>
+                <div class="detail-item">
+                    <label>Company ID:</label>
+                    <span>{{ company_id }}</span>
+                </div>
+                <div class="detail-item">
+                    <label>Address:</label>
+                    <span>{{ company['C_Address'] }}</span>
+                </div>
+                <div class="detail-item">
+                    <label>Email:</label>
+                    <span>{{ company['C_Email'] }}</span>
+                </div>
+                <div class="detail-item">
+                    <label>Phone Number:</label>
+                    <span>{{ company['C_PhoneNo'] }}</span>
+                </div>
+                <div class="detail-item">
+                    <label>Type:</label>
+                    <span>{{ company['Type'] }}</span>
+                </div>
+                <div class="detail-item">
+                    <label>Category:</label>
+                    <span>{{ company['Category'] }}</span>
+                </div>
+                <div class="detail-item">
+                    <label>City:</label>
+                    <span>{{ company['C_City'] }}</span>
+                </div>
+                <div class="detail-item">
+                    <label>State:</label>
+                    <span>{{ company['C_State'] }}</span>
+                </div>
+                <div class="detail-item">
+                    <label>CIN Number:</label>
+                    <span>{{ company['CINNO'] }}</span>
+                </div>
+                <div class="detail-item">
+                    <label>PAN Number:</label>
+                    <span>{{ company['PANNO'] }}</span>
+                </div>
+            </div>
+
+            <div class="documents-container">
+                <h2>Uploaded Documents</h2>
+                <div class="document-item">
+                    <label>Certificate of Incorporation:</label>
+                    <a href="{{ company['Certificate_URL'] }}" target="_blank">View</a>
+                </div>
+                <div class="document-item">
+                    <label>PAN Card:</label>
+                    <a href="{{ company['PAN_URL'] }}" target="_blank">View</a>
+                </div>
+                <div class="document-item">
+                    <label>Proof of Address:</label>
+                    <a href="{{ company['Address_URL'] }}" target="_blank">View</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='mains.js') }}"></script>
+</body>
+</html>

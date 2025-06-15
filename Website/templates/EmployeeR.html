@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UFT-8">
+    <meta name="viewport" content="width-device-width,initial-scale-1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styless.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <form action="{{ url_for('EmployeeR') }}" method="POST">
+            <div class="scrollable-element">
+                <h1>Employee Registration</h1>
+
+                <div class="input-box">
+                    <input type="text" name="D_Name" placeholder="Employee Name" required>
+                </div>
+
+                <div class="input-box">
+                    <input type="email" name="D_Email" placeholder="Email" required>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+
+                <div class="input-box">
+                    <input type="text" name="D_PhoneNo" placeholder="Phone Number" required>
+                </div>
+
+                <div class="input-box">
+                    <input type="text" name="VehicleNo" placeholder="Vehicle Number" required>
+                </div>
+
+                <div class="input-box">
+                    <select name="Vehicle_Type" required>
+                        <option value="" disabled selected>Select Vehicle Type</option>
+                        <option value="Bike">Bike</option>
+                        <option value="Truck">Truck</option>
+                    </select>
+                </div>
+
+                <div class="input-box">
+                    <input type="number" name="Capacity" placeholder="Capacity" required>
+                </div>
+
+                <div class="input-box">
+                    <label>Upload Profile Picture:</label>
+                    <input type="file" name="D_Profileurl" accept="image/*">
+                </div>
+
+                <button type="submit" class="btn">Register</button>
+            </div>    
+        </form>
+    </div>
+</div>
+    <script src="{{ url_for('static', filename='mains.js') }}"></script>
+</body>
+</html>

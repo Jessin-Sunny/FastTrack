@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width,initial-scale-1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styless.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <form action="{{ url_for('register') }}" method="POST" enctype="multipart/form-data">
+                <div class="scrollable-element">
+                    <h1>Registration</h1>
+                    <div class="input-box">
+                        <select name="Type" required>
+                            <option value="" disabled selected>Select Type</option>
+                            <option value="Private Limited">Private Limited</option>
+                            <option value="Public Limited">Public Limited</option>
+                            <option value="One Person">One Person</option>
+                            <option value="Partnership Firm">Partnership Firm</option>
+                            <option value="Non-Profit Organization">Non-Profit Organization</option>
+                            <option value="Government Company">Government Company</option>
+                            <option value="Limited Liability Partnership">Limited Liability Partnership</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <select name="Category" required>
+                            <option value="" disabled selected>Select Category</option>
+                            <option value="E-commerce & Retail">E-commerce & Retail</option>
+                            <option value="Logistics & Delivery">Logistics & Delivery</option>
+                            <option value="Medical & Pharmaceuticals">Medical & Pharmaceuticals</option>
+                            <option value="Grocery & Fresh Produce Delivery">Grocery & Fresh Produce Delivery</option>
+                            <option value="Electronics & Appliances">Electronics & Appliances</option>
+                            <option value="Automotive & Spare Parts">Automotive & Spare Parts</option>
+                            <option value="Manufacturing & Distribution">Manufacturing & Distribution</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="Country" placeholder="Country" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="C_Address" placeholder="Address" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="C_City" placeholder="City" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="C_State" placeholder="State" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="C_PIN" placeholder="PIN Code" required>
+                    </div>
+
+                    <div class="upload-container">
+                        <h1>Please upload the following documents in PDF format</h1>
+                        
+                        <div class="upload-section">
+                            <label for="certificate">Certificate of Incorporation</label>
+                            <input type="file" id="certificate" name="certificate" accept=".pdf">
+                        </div>
+                
+                        <div class="upload-section">
+                            <label for="pan">PAN Card</label>
+                            <input type="file" id="pan" name="pan" accept=".pdf">                            
+                            <button class="cancel-btn">Cancel</button>
+                        </div>
+                
+                        <div class="upload-section">
+                            <label for="address">Proof of Address</label>
+                            <input type="file" id="address" name="address" accept=".pdf">
+                            <button class="cancel-btn">Cancel</button>
+                        </div>
+                
+                        <!--<div class="upload-progress">
+                            <label for="upload">Uploading:</label>
+                            <progress id="upload" value="50" max="100"></progress>
+                        </div>-->
+                
+                        <div class="terms">
+                            <input type="checkbox" id="terms">
+                            <label for="terms">
+                                <a href="{{ url_for('terms') }}">Terms and Conditions</a>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn" id="register-btn" disabled>Register</button>
+                </div>    
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='mains.js') }}"></script>
+</body>
+</html>

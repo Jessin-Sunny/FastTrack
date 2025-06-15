@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FASTTRACK</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .bike {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: 50%;
+            left: 50%;
+            transform-origin: center;
+            transition: transform 0.1s linear;
+        }
+
+        .left-section {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+            <h1 class="title">FASTTRACK</h1>
+            <div class="top-right">
+                <div class="dropdown-icon" onclick="toggleDropdown()">⋮</div>
+                <div class="company-icon" onclick="window.location.href='{{ url_for('CompanyD') }}'">C</div>
+            </div>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="{{ url_for('login') }}" class="action">Logout</a>
+                <a href="{{ url_for('editprof') }}" class="action">Edit Profile</a>
+            </div>
+            <div class="sidebar" id="sidebar">
+                <a href="{{ url_for('contact') }}" class="action">Contact</a>
+                <a href="{{ url_for('about') }}" class="action">About Us</a>
+                <a href="#" onclick="toggleReportProblem()">Report Problem</a>
+                <div id="reportProblemSubMenu" class="sub-menu">
+                    <a href="#" onclick="showReportIssuePopup()">Report an issue</a>
+                    <a href="#" onclick="showSuggestIdeaPopup()">Suggest an idea</a>
+                </div>
+                <a href="#">Get Help</a>
+                <a href="#">Language</a>
+            </div>
+        </header>
+    
+        
+
+        <div class="main-content">
+            <div class="left-section">
+                <div class="logo"></div>
+                <img id="bike" src="{{ url_for('static', filename='images/scoot.png') }}" alt="Bike" class="bike">
+                <!--<img src="map-image.jpg" alt="Map Image">-->
+            </div>
+            <div class="right-section">
+                <div class="button-container">
+                    <div class="arrange1">
+                        <button class="action-button" onclick="window.location.href='{{ url_for("EmployeeR") }}'">Employee Register</button>
+                        <button class="action-button" onclick="window.location.href='{{ url_for("EmployeeD") }}'">Employee Details</button>
+                        <button class="action-button" onclick="window.location.href='{{ url_for("package") }}'">Package Details</button>
+                    </div>
+                    <div class="arrange1">
+                        <button class="action-button"onclick="window.location.href='{{ url_for("Report") }}'">Report</button>
+                    </div>
+                    
+                    <div class="arrange1">
+                        <button class="action-button"onclick="window.location.href='{{ url_for("EmployeePD") }}'">Employee Package Details</button>
+                        <button class="action-button"onclick="window.location.href='{{ url_for("UploadPack") }}'">Upload Package Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popup for Report an Issue -->
+        <div id="reportIssuePopup" class="popup">
+            <div class="popup-content">
+                <span class="close" onclick="closeReportIssuePopup()">&times;</span>
+                <h2>Report an Issue</h2>
+                <form action="{{ url_for('submit_issue') }}" method="POST">
+                    <label for="issueDescription">Describe your issue</label>
+                    <textarea id="issueDescription" placeholder="Tell as about the issue..." name="issueDescription" rows="4" required></textarea>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="mail" name="email" value="mail">
+                        <label for="mail">
+                            <span>We may email you for more information or updates</span>
+                        </label>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Popup for Suggest an Idea -->
+        <div id="suggestIdeaPopup" class="popup">
+            <div class="popup-content">
+                <span class="close" onclick="closeSuggestIdeaPopup()">&times;</span>
+                <h2>Suggest an Idea</h2>
+                <form>
+                    <label for="ideaDescription">Describe your suggestion</label>
+                    <textarea id="ideaDescription" placeholder="Tell us how we can improve..." name="ideaDescription" rows="4" required></textarea>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="mail" name="email" value="mail">
+                        <label for="mail">
+                            <span>We may email you for more information or updates</span>
+                        </label>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-left">
+                <a href="{{ url_for('Terms') }}">Terms of Use</a>
+            </div>
+            <div class="footer-right">
+                <span>Follow us:</span>
+                <a class="glassicon" href="#"><i class="fab fa-facebook-f"></i></a>
+                <a class="glassicon" href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </footer>
+
+        <script>
+            // Bike Animation Logic
+            const bike = document.getElementById('bike');
+            const radius = 75; // Distance from the center
+            const duration = 10000; // Rotation speed in milliseconds (4 seconds)
+
+            let startTime = null;
+
+            function animateBike(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = timestamp - startTime;
+                const angle = (progress / duration) * 2 * Math.PI;
+
+                const x = radius * Math.cos(angle);
+                const y = radius * Math.sin(angle);
+
+                bike.style.transform = `translate(${x}px, ${y}px) rotate(${angle + Math.PI / 2}rad)`;
+
+                if (progress < duration) {
+                    requestAnimationFrame(animateBike);
+                } else {
+                    
+                    requestAnimationFrame(animateBike);
+                }
+            }
+
+            requestAnimationFrame(animateBike);
+
+            // Existing JavaScript Functions
+            function toggleSidebar() {
+                const sidebar = document.getElementById('sidebar');
+                sidebar.classList.toggle('active');
+            }
+
+            function toggleDropdown() {
+                const dropdownMenu = document.getElementById('dropdownMenu');
+                dropdownMenu.classList.toggle('show');
+            }
+
+            function toggleReportProblem() {
+                const subMenu = document.getElementById('reportProblemSubMenu');
+                subMenu.classList.toggle('show');
+            }
+
+            function showReportIssuePopup() {
+                const popup = document.getElementById('reportIssuePopup');
+                popup.style.display = 'block';
+            }
+
+            function closeReportIssuePopup() {
+                const popup = document.getElementById('reportIssuePopup');
+                popup.style.display = 'none';
+            }
+
+            function showSuggestIdeaPopup() {
+                const popup = document.getElementById('suggestIdeaPopup');
+                popup.style.display = 'block';
+            }
+
+            function closeSuggestIdeaPopup() {
+                const popup = document.getElementById('suggestIdeaPopup');
+                popup.style.display = 'none';
+            }
+
+            // Close sidebar and dropdown when clicking outside
+            window.onclick = function(event) {
+                const dropdownMenu = document.getElementById('dropdownMenu');
+                const sidebar = document.getElementById('sidebar');
+                const subMenu = document.getElementById('reportProblemSubMenu');
+
+                // Close dropdown if clicked outside
+                if (!event.target.matches('.dropdown-icon') && !event.target.closest('.dropdown-menu')) {
+                    if (dropdownMenu.classList.contains('show')) {
+                        dropdownMenu.classList.remove('show');
+                    }
+                }
+
+                // Close sidebar if clicked outside
+                if (!event.target.matches('.menu-icon') && !event.target.closest('.sidebar')) {
+                    if (sidebar.classList.contains('active')) {
+                        sidebar.classList.remove('active');
+                    }
+                }
+
+                // Close sub-menu if clicked outside
+                if (!event.target.matches('.sidebar a') && !event.target.closest('.sub-menu')) {
+                    if (subMenu.classList.contains('show')) {
+                        subMenu.classList.remove('show');
+                    }
+                }
+            };
+        </script>
+    </div>
+</body>
+</html>
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FASTTRACK</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+            <div class="company-icon">F</div>
+            <div class="dropdown-icon" onclick="toggleDropdown()">...</div>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="#">Logout</a>
+                <a href="#">Edit Profile</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <a href="#">Contact</a>
+        <a href="#">About Us</a>
+        <a href="#">Get Help</a>
+        <a href="#">Language</a>
+    </div>
+
+    <div class="main-content">
+        <div class="left-section">
+            <img src="map-image.jpg" alt="Map Image">
+        </div>
+        <div class="right-section">
+            <button class="action-button">Employee Register</button>
+            <button class="action-button">Employee Details</button>
+            <button class="action-button">Report</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-left">
+            <a href="#">Terms of Use</a>
+        </div>
+        <div class="footer-right">
+            <span>Follow us:</span>
+            <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        function toggleDropdown() {
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            dropdownMenu.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
+-->
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+    <title>FastTrack</title>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">F</div>
+        <h1>FASTTRACK</h1>
+        <div class="menu">
+            <div class="dropdown">
+                <button class="dropbtn">⋮</button>
+                <div class="dropdown-content">
+                    <a href="#">Logout</a>
+                    <a href="#">Edit Profile</a>
+                </div>
+            </div>
+            <div class="company-details">@</div>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <ul>
+            <li>Contact</li>
+            <li>About us</li>
+            <li><a href="#">Get help</a></li>
+            <li>Language</li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="map">
+            <img src="map-image-url.jpg" alt="Map" />
+        </div>
+        <div class="buttons">
+            <button class="btn">Employee Register</button>
+            <button class="btn">Employee Details</button>
+            <button class="btn">Report</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="terms">Terms of Use</div>
+        <div class="follow-us">
+            Follow us:
+            <a href="#">Facebook</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </div>
+</body>
+</html>
+-->

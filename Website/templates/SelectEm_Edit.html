@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selected Employees</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style6.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Selected Employees</h1>
+        </header>
+        <div class="employee-list" id="selectedEmployeesList">
+            <!-- Selected employees will be dynamically added here -->
+        </div>
+        <button type="button" class="edit-btn" onclick="redirectToEditPage()">Edit</button>
+        <button type="button" class="back-btn" onclick="goBackToHome()">Back to Home</button>
+    </div>
+
+    <script>
+        // Function to display selected employees
+        function displaySelectedEmployees() {
+            // Retrieve selected employees from localStorage (or any other storage mechanism)
+            const selectedEmployees = JSON.parse(localStorage.getItem('selectedEmployees')) || [];
+
+            const selectedEmployeesList = document.getElementById('selectedEmployeesList');
+            selectedEmployeesList.innerHTML = '';
+
+            if (selectedEmployees.length === 0) {
+                selectedEmployeesList.innerHTML = '<p>No employees selected.</p>';
+            } else {
+                selectedEmployees.forEach(employee => {
+                    selectedEmployeesList.innerHTML += `
+                        <div class="employee-item">
+                            <span class="emp-id">${employee.id}</span>
+                            <span class="emp-name">${employee.name}</span>
+                        </div>
+                    `;
+                });
+            }
+        }
+
+        // Function to redirect to the edit page
+        function redirectToEditPage() {
+            window.location.href = 'edit.html'; // Replace with the actual edit page URL
+        }
+
+        // Function to go back to the home page
+        function goBackToHome() {
+            window.location.href = 'index.html'; // Replace with the actual home page URL
+        }
+
+        // Display selected employees when the page loads
+        displaySelectedEmployees();
+    </script>
+</body>
+</html>

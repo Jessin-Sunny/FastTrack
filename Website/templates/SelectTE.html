@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Selection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style5.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Select Truck Employees</h1>
+        <h2>🚚 Truck Employees Required: {{ truck_employees_needed }}</h2>
+        <input type="text" id="searchBar" placeholder="Search by ID or Name..." class="search-bar">
+
+        <form action="{{ url_for('SelectTE') }}" method="post">
+            <div class="employee-list">
+                {% for employee in employees %}
+                <div class="employee-item" data-id="{{ employee.D_ID }}" data-name="{{ employee.D_Name }}">
+                    <input type="checkbox" id="{{ employee.D_ID }}" name="employees" value="{{ employee.D_ID }}" 
+                        {% if employee.Selected_Today %} checked {% endif %}>
+                    <label for="{{ employee.D_ID }}">
+                        <span class="emp-id">{{ employee.D_ID }}</span>
+                        <span class="emp-name">{{ employee.D_Name }}</span>
+                    </label>
+                </div>
+                {% endfor %}
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        const searchBar = document.getElementById('searchBar');
+        const employeeItems = document.querySelectorAll('.employee-item');
+
+        searchBar.addEventListener('input', () => {
+            const searchTerm = searchBar.value.toLowerCase();
+
+            employeeItems.forEach(item => {
+                const id = item.getAttribute('data-id').toLowerCase();
+                const name = item.getAttribute('data-name').toLowerCase();
+
+                if (id.includes(searchTerm) || name.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
