@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(90deg,#e2e2e2,#c9d6ff);
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+}
+
+.container{
+    position:relative;
+    width: 850px;
+    height:550px;
+    background: #fff;
+    margin: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0,0,0,.2);
+    overflow: hidden;
+}
+
+header {
+    background-color: #7494ec;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 830px;
+    height:50px;
+}
+
+h1 {
+    margin-left: 240px;
+}
+
+/* Selected Employees Page Styles */
+#selectedEmployeesList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#selectedEmployeesList .employee-item {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+#selectedEmployeesList .emp-id {
+    font-weight: bold;
+    color: #555;
+}
+
+#selectedEmployeesList .emp-name {
+    color: #333;
+}
+
+.edit-btn, .back-btn {
+    width: 20%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 175px;
+    flex-direction: column;
+}
+
+.edit-btn {
+    background-color: #647ae4;
+    color: #000;
+}
+
+.edit-btn:hover {
+    background-color: #3a48e0;
+}
+
+.back-btn {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.back-btn:hover {
+    background-color: #5a6268;
+}

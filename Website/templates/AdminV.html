@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Verification</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style10.css') }}">
+</head>
+<body>
+  <div class="container swiper">
+    <div class="slider-wrapper">
+      <div class="cd swiper-slide">
+        <div class="c">
+          <div class="heading-section">
+            <img src="{{ company.Logo_URL }}" alt="Company Logo" class="company-logo">
+            <h1 class="company-name">{{ company.C_Name }}</h1>
+          </div>
+
+          <div class="details-section">
+            <p><strong>CIN:</strong> {{ company.CINNO }}</p>
+            <p><strong>Email:</strong> {{ company.C_Email }}</p>
+            <p><strong>Phone:</strong> {{ company.C_PhoneNo }}</p>
+            <p><strong>Address:</strong> {{ company.C_Address }}, {{ company.C_City }}, {{ company.C_State }}, {{ company.C_PIN }}</p>
+            <p><strong>Category:</strong> {{ company.Category }}</p>
+            <p><strong>Type:</strong> {{ company.Type }}</p>
+            <p><strong>Country:</strong> {{ company.Country }}</p>
+
+            <!-- Document Links -->
+            <p><strong>Certificate:</strong> <a href="{{ company.Certificate_URL }}" target="_blank">View</a></p>
+            <p><strong>PAN:</strong> <a href="{{ company.PAN_URL }}" target="_blank">View</a></p>
+            <p><strong>Address Proof:</strong> <a href="{{ company.Address_URL }}" target="_blank">View</a></p>
+
+            <!-- Verify and Reject Buttons -->
+            <form action="/verify_company" method="POST" style="display: inline;">
+              <input type="hidden" name="doc_id" value="{{ company.doc_id }}">
+              <button class="verify-btn" type="submit">Verify</button>
+            </form>
+
+            <form action="/reject_company" method="POST" style="display: inline;">
+              <input type="hidden" name="doc_id" value="{{ company.doc_id }}">
+              <button class="reject-btn" type="submit">Reject</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='script1.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='package_style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Package Details</h1>
+
+        <!-- Button to download all QR codes -->
+        <button class="download-btn" onclick="window.location.href='{{ url_for('download_all_qr') }}'">
+            Download All QR Codes
+        </button>
+
+        <table class="package-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Location</th>
+                    <th>Weight (kg)</th>
+                    <th>QR Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for package in packages %}
+                <tr>
+                    <td>{{ package.P_ID }}</td>
+                    <td>{{ package.Loc_Name }}</td>
+                    <td>{{ package.Weight }}</td>
+                    <td>
+                        <button class="view-qr-btn" onclick="toggleQR('{{ package.P_ID }}')">View QR</button>
+                        <img id="qr-{{ package.P_ID }}" src="{{ package.QR_URL }}" alt="QR Code" class="qr-image" style="display: none;">
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function toggleQR(packageId) {
+            let qrImage = document.getElementById("qr-" + packageId);
+            qrImage.style.display = (qrImage.style.display === "none") ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

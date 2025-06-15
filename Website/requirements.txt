@@ -1,0 +1,10 @@
+Flask
+firebase-admin
+werkzeug
+supabase
+flask-session
+google-cloud-firestore
+pandas
+qrcode[pil]
+requests
+Pillow

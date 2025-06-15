@@ -1,0 +1,132 @@
+/* Importing Google Font - Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
+}
+
+/*
+.container {
+    position: relative;
+    width: 1000px;
+    height: 600px;
+    background-color: aliceblue;
+    margin: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .slider-wrapper {
+    width: 900px;
+    margin: 0 auto;
+  }
+*/
+
+.cd .c {
+  color: #fff;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 30px;
+  background: #4658ff;
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  width: 750px;
+  height: auto;
+  margin-top: 20px;
+}
+
+/* Heading Section */
+.heading-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.company-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  margin-bottom: 15px;
+}
+
+.company-name {
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+}
+
+
+.details-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.detail-item label {
+  font-weight: 600;
+  color: #e3e3e3;
+}
+
+.detail-item span {
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Buttons */
+button {
+  width: 130px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+  text-align: center;
+}
+
+.verify-btn {
+  background-color: #28a745;
+  color: white;
+  margin: 10px 5px;
+}
+
+.verify-btn:hover {
+  background-color: #218838;
+}
+
+.reject-btn {
+  background-color: #dc3545;
+  color: white;
+  margin: 10px 5px;
+}
+
+.reject-btn:hover {
+  background-color: #c82333;
+}
+
+

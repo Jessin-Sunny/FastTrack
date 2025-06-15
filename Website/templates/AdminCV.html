@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pending Companies</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style8.css') }}">
+</head>
+<body>
+  <div class="container swiper">
+    {% if companies %}
+    <div class="slider-wrapper">
+      <div class="card-list swiper-wrapper">
+        {% for company in companies %}
+        <div class="card-item swiper-slide">
+          <img src="{{ company.Logo_URL }}" alt="Company Logo" class="user-image">
+          <h2 class="user-name">{{ company.CINNO }}</h2>
+          <p class="user-profession">{{ company.C_Name }}</p>
+          <form action="/AdminV" method="POST">
+            <input type="hidden" name="doc_id" value="{{ company.doc_id }}">
+            <button class="message-button" type="submit">View</button>
+          </form>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    {% else %}
+    <div class="no-companies-message">
+      <h2>No pending company verifications.</h2>
+    </div>
+    {% endif %}
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='script1.js') }}"></script>
+</body>
+</html>

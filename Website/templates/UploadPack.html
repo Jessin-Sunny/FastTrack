@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag and Drop File Upload</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style9.css') }}">
+</head>
+<body>
+  <main>
+    <form class="dropzone-box" action="{{ url_for('UploadPack') }}" method="POST" enctype="multipart/form-data">
+      <h2>Upload today's package details</h2>
+      <p>Click to upload or drag and drop</p>
+      <div class="dropzone-area" role="region" aria-live="polite">
+        <label for="upload-file" class="file-upload-icon" aria-hidden="true">
+          <!-- SVG icon for upload -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="64" height="64">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+          </svg>
+        </label>
+        <input
+          type="file" required multiple id="upload-file"
+          name="uploaded-file" accept=".xls,.xlsx"
+          aria-describedby="file-info"
+        >
+        <div id="file-info" class="file-info">
+          <p>No Files Selected</p>
+        </div>
+      </div>
+      <div class="dropzone-description">
+        <span>Supported formats: Excel</span>
+        <span>Max file size: 25MB</span>
+      </div>
+      <div class="dropzone-actions">
+        <div class="dropzone-help">
+          <!-- SVG icon for help -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+          </svg>
+          Help Center
+        </div>
+        <div class="action-buttons">
+          <button type="reset" aria-label="Cancel file selection">
+            Cancel
+          </button>
+          <button id="submit-button" type="submit" aria-label="Upload selected files">
+            Save
+          </button>
+        </div>
+      </div>
+    </form>
+  </main>
+  <script src="{{ url_for('static', filename='script2.js') }}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <main>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style9.css') }}">
+    <form class="dropzone-box">
+        <h2>Upload file</h2>
+        <p>Click to upload or drag and drop</p>
+        <div class="dropzone-area" role="region" aria-Live="polite"></div>>
+            <label for="upload-file" class="file-upload-icon" aria-hidden="true">
+            </label>
+            <input
+                type="file" required multiple id="upload-file"
+                name="uploaded-file" accept="image/*"
+                aria-describedby="file-info"
+            >
+            <div id="file-info" class="file-info">
+                <p>No Files Selected</p>
+            </div>
+        </div>
+        <div class="dropzone-description">
+            <span>Supported formats: JPEG, JPG, PNG, ...</span>
+            <span>Max file size: 25MB</span>
+        </div>
+        <div class="dropzone-actions">
+            <div class="dropzone-help">
+                Help Center
+            </div>
+            <div class="action-buttons">
+                <button type="reset" aria-label="Cancel file selection">
+                    Cancel
+                </button>
+                <button
+                    id="submit-button" type="submit"
+                    aria-label="Upload selected files"
+                >
+                    Save
+                </button>
+            </div>
+        </div>
+        <script src="{{ url_for('static', filename='script2.js') }}"></script>
+    </form>
+</main> -->

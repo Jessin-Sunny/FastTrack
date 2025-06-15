@@ -1,16 +1,17 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:fasttrack/screens/secrets.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'secrets.dart';
+import '../../../lib/screens/secrets.dart';
 
-class PersonnelNavigation extends StatefulWidget {
+class NavigationSample extends StatefulWidget {
   final List<LatLng> optimizedLocations;
   final List<String> optimizednames;
   final LatLng currentLocation;
-  const PersonnelNavigation({
+  const NavigationSample({
     super.key,
     required this.optimizedLocations,
     required this.optimizednames,
@@ -18,10 +19,10 @@ class PersonnelNavigation extends StatefulWidget {
   });
 
   @override
-  State<PersonnelNavigation> createState() => _PersonnelNavigationState();
+  State<NavigationSample> createState() => _NavigationSampleState();
 }
 
-class _PersonnelNavigationState extends State<PersonnelNavigation> {
+class _NavigationSampleState extends State<NavigationSample> {
   late GoogleMapController mapController;
   Set<Marker> stopmarker = {};
   Set<Marker> currentlocmarker = {};

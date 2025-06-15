@@ -19,7 +19,7 @@ import 'packet.dart';
 import 'package:intl/intl.dart';
 import 'notifications.dart';
 import 'settings.dart';
-import 'secrets.dart';
+import '../../../lib/screens/secrets.dart';
 
 class PersonnelPage extends StatefulWidget {
   final String password;

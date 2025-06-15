@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Selected Employees</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style5.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Edit Selected Employees</h1>
+        </header>
+        <input type="text" id="searchBar" placeholder="Search by ID or Name..." class="search-bar">
+        
+        <form action="#" method="post">
+            <div class="employee-list" id="employeeList">
+                <!-- Selected employees will be dynamically added here -->
+                <!-- All employees will be dynamically added here -->
+            </div>
+            <button type="submit" class="submit-btn">Save Changes</button>
+        </form>
+        <button type="button" class="back-btn" onclick="goBackToSelectedEmployees()">Back to Selected Employees</button>
+    </div>
+
+    <script>
+        // Function to load employees and display them with selected ones on top
+        function loadEmployees() {
+            const allEmployees = [
+                { id: 'E001', name: 'John Doe' },
+                { id: 'E002', name: 'Jane Smith' },
+                { id: 'E003', name: 'Alice Johnson' },
+                // Add more employees as needed
+            ];
+
+            const selectedEmployees = JSON.parse(localStorage.getItem('selectedEmployees')) || [];
+            const employeeList = document.getElementById('employeeList');
+
+            // Display selected employees first
+            selectedEmployees.forEach(employee => {
+                employeeList.innerHTML += `
+                    <div class="employee-item" data-id="${employee.id}" data-name="${employee.name}">
+                        <input type="checkbox" id="${employee.id}" name="employees" value="${employee.id}" checked>
+                        <label for="${employee.id}">
+                            <span class="emp-id">${employee.id}</span>
+                            <span class="emp-name">${employee.name}</span>
+                        </label>
+                    </div>
+                `;
+            });
+
+            // Display the rest of the employees
+            allEmployees.forEach(employee => {
+                if (!selectedEmployees.some(selected => selected.id === employee.id)) {
+                    employeeList.innerHTML += `
+                        <div class="employee-item" data-id="${employee.id}" data-name="${employee.name}">
+                            <input type="checkbox" id="${employee.id}" name="employees" value="${employee.id}">
+                            <label for="${employee.id}">
+                                <span class="emp-id">${employee.id}</span>
+                                <span class="emp-name">${employee.name}</span>
+                            </label>
+                        </div>
+                    `;
+                }
+            });
+        }
+
+        // Function to handle search
+        const searchBar = document.getElementById('searchBar');
+        searchBar.addEventListener('input', () => {
+            const searchTerm = searchBar.value.toLowerCase();
+            const employeeItems = document.querySelectorAll('.employee-item');
+
+            employeeItems.forEach(item => {
+                const id = item.getAttribute('data-id').toLowerCase();
+                const name = item.getAttribute('data-name').toLowerCase();
+
+                if (id.includes(searchTerm) || name.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Function to go back to the Selected Employees page
+        function goBackToSelectedEmployees() {
+            window.location.href = 'SelectEm_Edit.html';
+        }
+
+        // Load employees when the page loads
+        loadEmployees();
+    </script>
+</body>
+</html>

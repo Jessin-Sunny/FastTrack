@@ -1,0 +1,378 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(90deg,#e2e2e2,#c9d6ff);
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+}
+
+.container{
+    position:relative;
+    width: 850px;
+    height:550px;
+    background: #fff;
+    margin: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0,0,0,.2);
+    overflow: hidden;
+}
+
+header {
+    background-color: #7494ec;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 830px;
+    height:100px;
+}
+
+.menu-icon, .dropdown-icon {
+    cursor: pointer;
+    font-size: 24px;
+    margin: 0 10px;
+}
+
+.title {
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
+    font-size: 60px;
+}
+
+.top-right {
+    display: flex;
+    align-items: center;
+}
+
+.company-icon {
+    background-color: #fff;
+    color: #555;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 85px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.sidebar {
+    height: 650px;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 30px;
+    z-index: 2;
+    margin-top: 120px;
+    margin-bottom: 60px;
+}
+
+.sidebar.active {
+    width: 200px;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.sub-menu {
+    display: none;
+    padding-left: 20px;
+}
+
+.sub-menu.show {
+    display: block;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    width: 850px;
+    height:375px;
+}
+
+.left-section {
+    flex: 1;
+    background-image: url('images/bgm1.jpeg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-section img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    margin-bottom: 15px;
+    background-image: url('images/logo.png');
+    background-position: 65%;
+    background-size: 100px;
+    backdrop-filter: blur(1px);
+}
+
+.bike {
+    width: 30px;
+    height: 30px;
+    background-image: url('images/scoot.png');
+    background-size: cover;
+    position: relative;
+    margin-top: -30px;
+    margin-left: -25px;
+    transform: translate(-50%, -50%);
+    /*
+    transform: translate(-50%, -50%);
+    animation: circle 5s linear infinite;
+    */
+}
+/*
+@keyframes circle {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) translateX(60px) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) translateX(60px) rotate(-360deg);
+    }
+}
+*/
+
+.right-section {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.action-button {
+    background-color: #2553d2;
+    color: white;
+    padding: 15px 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 150px;
+    height: 70px;
+    align-items: center;
+    text-align: center;
+}
+
+.box {
+    background-color: #7494ec;
+    color: white;
+    padding: 15px 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 130px;
+    height: 60px;
+    align-items: center;
+    text-align: center;
+    animation: 1.5s infinite anim;
+}
+
+@keyframes anim{
+    0%{transform: rotateY(0);}
+    100%{transform: rotateY(90deg);}
+}
+
+.action-button:hover {
+    background-color: #2553d2;
+}
+
+.arrange1 {
+    display: flex;
+    margin-left: auto;
+    margin-top: 30px;
+    margin-right: auto;
+    gap: 5px;
+}
+
+.arrange2 {
+    display: flex;
+    margin-left: auto;
+    margin-top: auto;
+    margin-right: 200px;
+    gap: 5px;
+}
+
+.arrange3 {
+    display: flex;
+    margin-left: auto;
+    margin-top: 30px;
+    margin-right: 90px;
+    gap: 5px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-left a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-right img {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+}
+
+.footer-right a {
+    color: #fff;
+    font-size: 20px;
+    margin-left: 10px;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.footer-right a:hover {
+    color: #7494ec;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    margin-top: 150px;
+    margin-left: 200px;
+}
+
+.popup-content .close {
+    cursor: pointer;
+    position: absolute;
+    top: 150px;
+    right: 320px;
+    font-size: 24px;
+}
+
+.popup-content h2 {
+    margin-bottom: 20px;
+}
+
+.popup-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; 
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.checkbox-container label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+}
+
+.popup-content form label {
+    margin-bottom: 10px;
+}
+
+.popup-content form textarea {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.popup-content form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #7494ec;
+    color: white;
+    cursor: pointer;
+}
+
+.popup-content form button:hover {
+    background-color: #2553d2;
+}

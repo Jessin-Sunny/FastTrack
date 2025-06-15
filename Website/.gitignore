@@ -1,0 +1,10 @@
+.env
+flask_session/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Firebase JSON file
+fasttrack-fa164-firebase-adminsdk-fbsvc-a8edfe4256.json

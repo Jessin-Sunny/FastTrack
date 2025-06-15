@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Needed</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style11.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Needed</h1>
+        <p>We need {{ bike_employees_needed }} bike employees for today's delivery.</p>
+        <p>Assign available employees.</p>
+        <button class="ok" onclick="redirectToSelectEmployees()">OK</button>
+    </div>
+
+    <script>
+        function redirectToSelectEmployees() {
+            window.location.href = "/SelectBE";  // Redirect to the employee selection page
+        }
+    </script>
+</body>
+</html>

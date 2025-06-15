@@ -4,7 +4,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'package:fasttrack/screens/personnel_navigation.dart';
-import 'secrets.dart';
+import '../../../lib/screens/secrets.dart';
 class PersonnelOptimization extends StatefulWidget {
   final List<Map<String, dynamic>> packets;
   final LatLng currentlocation;

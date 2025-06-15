@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Slider HTML and CSS </title>
+  <!-- Linking SwiperJS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style8.css') }}">
+</head>
+<body>
+  <div class="container swiper">
+    {% if companies %}
+      <div class="slider-wrapper">
+        <div class="card-list swiper-wrapper">
+          {% for company in companies %}
+          <div class="card-item swiper-slide">
+            <img src="{{ company.CompanyLogo }}" alt="Company Logo" class="user-image">
+            <h2 class="user-name">{{ company.CINNO }}</h2>
+            <p class="user-profession">{{ company.C_Name }}</p>
+            <form action="/AdminCD" method="POST">
+              <input type="hidden" name="cinno" value="{{ company.doc_id }}">
+              <button class="message-button" type="submit">Details</button>
+            </form>            
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    {% else %}
+      <h2 style="color: white; text-align: center;">No Registered Companies Found</h2>
+    {% endif %}
+  </div>
+
+
+  <!-- Linking SwiperJS script -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Linking custom script -->
+  <script src="{{ url_for('static', filename='script1.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Details Slider</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style10.css') }}">
+</head>
+<body>
+  <div class="container swiper">
+    <div class="slider-wrapper">
+      <div class="cd">
+        <div class="c">
+          <div class="heading-section">
+            <img src="{{ company.Logo_URL }}" alt="Company Logo" class="company-logo">
+            <h1 class="company-name">{{ company.C_Name }}</h1>
+          </div>
+
+          <div class="details-section">
+            <div class="detail-item">
+              <label>Company ID:</label>
+              <span>{{ company.CINNO }}</span>
+            </div>
+            <div class="detail-item">
+              <label>Address:</label>
+              <span>{{ company.C_Address }}</span>
+            </div>
+            <div class="detail-item">
+              <label>Email:</label>
+              <span>{{ company.C_Email }}</span>
+            </div>
+            <div class="detail-item">
+              <label>Phone Number:</label>
+              <span>{{ company.C_PhoneNo }}</span>
+            </div>
+            <div class="detail-item">
+              <label>Type:</label>
+              <span>{{ company.Type }}</span>
+            </div>
+            <div class="detail-item">
+              <label>Category:</label>
+              <span>{{ company.Category }}</span>
+            </div>
+            <div class="detail-item">
+              <label>City:</label>
+              <span>{{ company.C_City }}</span>
+            </div>
+            <div class="detail-item">
+              <label>State:</label>
+              <span>{{ company.C_State }}</span>
+            </div>
+            <div class="detail-item">
+              <label>CIN Number:</label>
+              <span>{{ company.CINNO }}</span>
+            </div>
+            <div class="detail-item">
+              <label>PAN Number:</label>
+              <span>{{ company.PANNO }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script src="{{ url_for('static', filename='script1.js') }}"></script>
+</body>
+</html>

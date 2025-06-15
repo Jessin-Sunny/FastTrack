@@ -1,0 +1,126 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(90deg,#e2e2e2,#c9d6ff);
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+}
+
+.container{
+    position:relative;
+    width: 850px;
+    height:550px;
+    background: #fff;
+    margin: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0,0,0,.2);
+    overflow: hidden;
+}
+
+header {
+    background-color: #7494ec;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 830px;
+    height:50px;
+}
+
+h1 {
+    margin-left: 240px;
+}
+
+/* Search Bar */
+.search-bar {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-left: 210px;
+    margin-top: 30px;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #3a48e0;
+    box-shadow: 0 0 5px rgba(65, 118, 240, 0.5);
+}
+
+.employee-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.employee-item {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #7494ec;
+    width: 75%;
+    margin-left: 50px;
+}
+
+.employee-item input[type="checkbox"] {
+    margin-right: 20px;
+}
+
+.employee-item label {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.emp-id {
+    font-weight: bold;
+    color: #555;
+}
+
+.emp-name {
+    color: #333;
+}
+
+.submit-btn {
+    width: 30%;
+    padding: 10px;
+    background-color: #7494ec;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 290px;
+}
+
+.submit-btn:hover {
+    background-color: #3a48e0;
+}
+
+.back-btn {
+    width: 30%;
+    padding: 10px;
+    background-color: #7494ec;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 290px;
+}
