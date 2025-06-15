@@ -1,0 +1,147 @@
+name: fasttrack
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+  connectivity_plus: ^6.1.3
+  flutter_speed_test_plus: ^1.0.9
+  #Firebase
+  firebase_core: ^3.11.0
+  cloud_firestore: ^5.6.3
+  firebase_auth: ^5.4.2
+  firebase_messaging: ^15.2.4
+  flutter_local_notifications: ^18.0.1
+  #login state permanant
+  shared_preferences: ^2.5.2
+  #fonts
+  google_fonts: ^6.2.1
+  #qrcode scanner
+  qr_code_scanner_plus: ^2.0.10+1
+  #supabase
+  supabase: ^2.6.3
+  #OpenStreetMap
+  flutter_map: ^7.0.2
+  latlong2: ^0.9.1
+  geolocator: ^13.0.2
+  flutter_map_location_marker: ^9.1.1
+  location: ^8.0.0
+  http: ^1.3.0
+  flutter_polyline_points: ^2.1.0
+  flutter_compass: ^0.8.1
+  sensors_plus: ^6.1.1
+  url_launcher: ^6.3.1
+  flutter_typeahead: ^5.2.0
+  geocoding: ^3.0.0
+  open_route_service: ^1.2.7
+  dio: ^5.8.0+1
+  #google maps
+  google_maps_flutter: ^2.10.1
+  google_api_headers: ^4.3.1
+  google_places_flutter: ^2.0.9
+  #provider
+  provider: ^6.1.2
+
+  
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.8
+  animated_text_kit: ^4.2.2
+
+dev_dependencies:
+  flutter_launcher_icons: ^0.14.3
+  flutter_test:
+    sdk: flutter
+    
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^5.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - images/Point_image.jpg
+    - images/Fasttrack_logo.jpg
+    - images/Map.jpg
+    - images/bike.png
+    - images/instr1.jpg
+    - images/instr2.jpg
+    - images/instr3.jpg
+    - images/instr5.jpg
+    - images/instr6.jpg
+    - images/instr8.jpg
+    - images/instr9.jpg
+    - images/instr10.jpg
+    - images/instr11.jpg
+    - images/instr12.jpg
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "images/Fasttrack_logo.jpg"  # Path to your logo
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/to/resolution-aware-images
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/to/asset-from-package
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/to/font-from-package
